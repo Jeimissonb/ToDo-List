@@ -1,11 +1,12 @@
+import { Header } from './components/Header'
 import './global.css'
 
 function App() {
 
   return (
-    <>
-      <h1> oi </h1>
-    </>
+    <div>
+      <Header />
+    </div>
   )
 }
 
