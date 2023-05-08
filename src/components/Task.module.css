@@ -1,0 +1,143 @@
+.taskForm {
+  display: flex;
+  width: 40rem;
+  height: 3.375rem;
+  padding: 0;
+  /* justify-content: space-between; */
+  color: var(--gray100);
+  gap: 0.5rem;
+}
+
+.taskForm>input {
+  background-color: var(--gray500);
+  color: var(--gray100);
+  width: 100%;
+  height: 3.375rem;
+  border-radius: 8px;
+  border: 1px solid var(--gray700);
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.taskForm>button>.plusIcon {
+  border: 1px solid var(--gray100);
+  border-radius: 8px;
+}
+
+.taskForm>button {
+  background-color: var(--blue700);
+  color: var(--gray100);
+  display: flex;
+  height: 3.25rem;
+  width: 5.625rem;
+  border-radius: 8px;
+  border: 1px solid var(--blue700);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.taskForm>button>span {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.tasksContainer {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 1.5rem;
+  height: 17.938rem;
+}
+
+.tasksInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tasksInfo .createdTasksInfo {
+  display: flex;
+  align-items: center;
+  height: 1.118rem;
+  width: 8.688rem;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.tasksInfo .createdTasksInfo>strong {
+  color: var(--blue400);
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.063rem;
+}
+
+.tasksInfo .createdTasksInfo>span {
+  color: var(--gray200);
+  background: var(--gray400);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 0.938rem;
+  padding: 0.125rem 0.5rem;
+  /* width: 1.563rem;
+  height: 1.118rem; */
+}
+
+.tasksInfo .doneTasksInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 1.118rem;
+  width: 8.688rem;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.tasksInfo .doneTasksInfo>strong {
+  color: var(--purple400);
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.063rem;
+}
+
+.tasksInfo .doneTasksInfo>span {
+  color: var(--gray200);
+  background: var(--gray400);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 0.938rem;
+  padding: 0.125rem 0.5rem;
+  /* width: 1.563rem;
+  height: 1.118rem; */
+}
+
+.emptyTaskList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  gap: 1rem;
+  border-top: 1px solid var(--gray400);
+  border-radius: 8px;
+}
+
+.emptyTaskList img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.emptyTaskList span {
+  line-height: 1.4;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--gray300);
+  align-self: stretch;
+}

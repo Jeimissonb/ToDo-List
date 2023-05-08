@@ -1,13 +1,17 @@
-import { Header } from './components/Header'
-import './global.css'
+import { Header } from "./components/Header";
+import { Task } from "./components/Task";
+import styles from "./App.module.css";
+import "./global.css";
 
 function App() {
-
   return (
-    <div>
+    <>
       <Header />
-    </div>
-  )
+      <div className={styles.taskCentral}>
+        <Task />
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;

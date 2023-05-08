@@ -1,0 +1,10 @@
+.taskCentral {
+  display: flex;
+  flex-direction: column;
+  margin-top: -1.688rem;
+  align-items: center;
+}
+
+.widthFull{
+  width: 50%;
+}
