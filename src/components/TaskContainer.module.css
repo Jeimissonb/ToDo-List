@@ -141,3 +141,14 @@
   color: var(--gray300);
   align-self: stretch;
 }
+
+.taskList {
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--gray400);
+  border-radius: 8px;
+}
