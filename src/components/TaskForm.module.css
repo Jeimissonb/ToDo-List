@@ -1,0 +1,41 @@
+.taskForm {
+  display: flex;
+  color: var(--gray100);
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.taskForm>input {
+  background-color: var(--gray500);
+  color: var(--gray100);
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--gray700);
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.taskForm>button>.plusIcon {
+  border: 1px solid var(--gray100);
+  border-radius: 8px;
+}
+
+.taskForm>button {
+  background-color: var(--blue700);
+  color: var(--gray100);
+  display: flex;
+  /* in figma height is 3.25, so, the difference between 3.25 and 3.375 is equal to 96.3% */
+  height: 96.3%;
+  max-width: 5.625rem;
+  border-radius: 8px;
+  border: 1px solid var(--blue700);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.taskForm>button>span {
+  font-size: 0.875rem;
+  font-weight: 700;
+}

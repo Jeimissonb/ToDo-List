@@ -1,17 +1,9 @@
-import { Plus } from "phosphor-react";
 import styles from "./TaskContainer.module.css";
 import { TaskCard } from "./TaskCard";
 
 export function TaskContainer() {
   return (
     <div>
-      <form className={styles.taskForm}>
-        <input type="text" placeholder="Adicione uma nova tarefa" />
-        <button type="submit" title="Criar">
-          <span> Criar </span>
-          <Plus className={styles.plusIcon} size={16} />
-        </button>
-      </form>
       <div className={styles.tasksContainer}>
         <div className={styles.tasksInfo}>
           <div className={styles.createdTasksInfo}>
@@ -33,7 +25,6 @@ export function TaskContainer() {
         <div className={styles.taskList}>
           <TaskCard />
           <TaskCard />
-
         </div>
       </div>
     </div>

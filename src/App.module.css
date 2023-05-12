@@ -1,10 +1,17 @@
-.taskCentral {
+.taskCentralContainer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 46rem;
+  height: 3.375rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  margin-top: -1.688rem;
+  margin-top: -1.687rem;
   align-items: center;
 }
 
-.widthFull{
-  width: 50%;
+.taskCentralContainer .taskContent {
+  margin-top: 4rem;
+  max-height: 17.938rem;
+  width: 100%;
 }
