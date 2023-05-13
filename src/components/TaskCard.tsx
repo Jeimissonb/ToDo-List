@@ -1,5 +1,5 @@
 import styles from "./TaskCard.module.css";
-import { Trash } from 'phosphor-react';
+import { Trash } from "phosphor-react";
 
 export function TaskCard() {
   return (
@@ -16,7 +16,9 @@ export function TaskCard() {
         Integer urna interdum massa libero auctor neque turpis turpis semper.
         Duis vel sed fames integer.
       </p> */}
-      <Trash size={24}/>
+      <div>
+        <Trash size={"1.5rem"}/>
+      </div>
     </div>
   );
 }

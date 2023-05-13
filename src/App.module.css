@@ -3,7 +3,7 @@
   margin-right: auto;
   max-width: 46rem;
   height: 3.375rem;
-  padding: 0;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   margin-top: -1.687rem;
@@ -14,4 +14,10 @@
   margin-top: 4rem;
   max-height: 17.938rem;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 85.5%;
+  }
 }

@@ -7,7 +7,7 @@ export function TaskForm() {
       <input type="text" placeholder="Adicione uma nova tarefa" />
       <button type="submit" title="Criar">
         <span> Criar </span>
-        <Plus className={styles.plusIcon} size={16} />
+        <Plus className={styles.plusIcon} size={"1rem"} />
       </button>
     </form>
   );
