@@ -5,9 +5,10 @@ import { TaskType } from "./TaskContainer";
 
 interface TaskCardProps {
   taskList: TaskType[];
+  onDeleteTask: (id: number | undefined) => void;
 }
 
-export function TaskCard({ taskList }: TaskCardProps) {
+export function TaskCard({ taskList, onDeleteTask }: TaskCardProps) {
   useEffect(() => {
     console.log(taskList);
   }, [taskList]);
@@ -34,7 +35,7 @@ export function TaskCard({ taskList }: TaskCardProps) {
           Duis vel sed fames integer.
         </p> */}
               <div className={styles.trashIcon}>
-                <Trash size={"1.5rem"} />
+                <Trash size={"1.5rem"} onClick={() => onDeleteTask(taskItem?.id)}/>
               </div>
             </div>
           );

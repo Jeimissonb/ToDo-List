@@ -1,24 +1,32 @@
 import styles from "./TaskContainer.module.css";
 import { TaskCard } from "./TaskCard";
 import { useEffect, useState } from "react";
-import Clipboard from "../assets/Clipboard.svg"
+import Clipboard from "../assets/Clipboard.svg";
 
 export interface TaskType {
   id: number | undefined;
   task: string | undefined;
-  setTasks?: any;
+  setTasks?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export function TaskContainer({ task, id, setTasks }: TaskType) {
   const [taskList, setTaskList] = useState<TaskType[]>([]);
 
   useEffect(() => {
-    if (task) setTaskList((prevTaskList) => [...prevTaskList, { task, id }]);
+    if (task) {
+      setTaskList((prevTaskList) => [...prevTaskList, { task, id }]);
+    }
   }, [task, id, setTaskList]);
 
   useEffect(() => {
-    setTasks(taskList.length);
-  }, [taskList.length]);
+    if (setTasks) {
+      setTasks(taskList.length);
+    }
+  }, [setTasks, taskList.length]);
+
+  function onDeleteTask(taskId: number | undefined){
+    setTaskList((prevTaskList) => [...prevTaskList.filter(task => task.id !== taskId)])
+  }
 
   return (
     <div>
@@ -43,7 +51,7 @@ export function TaskContainer({ task, id, setTasks }: TaskType) {
           </div>
         )}
         <div className={styles.taskList}>
-          <TaskCard taskList={taskList} />
+          <TaskCard taskList={taskList} onDeleteTask={onDeleteTask}/>
           {/* <TaskCard /> */}
         </div>
       </div>
