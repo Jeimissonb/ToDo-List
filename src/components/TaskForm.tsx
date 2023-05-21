@@ -32,7 +32,8 @@ export function TaskForm() {
 
       const taskItem: TaskType = {
         id: uuidv4(),
-        task: textOfTask
+        task: textOfTask,
+        isChecked: false
       };
 
       setNewTextOfTask(taskItem);
@@ -55,7 +56,7 @@ export function TaskForm() {
         </button>
       </form>
       <div className={styles.taskContent}>
-        <TaskContainer task={newTextOfTask?.task} id={newTextOfTask?.id} />
+        <TaskContainer task={newTextOfTask?.task} id={newTextOfTask?.id} isChecked={newTextOfTask?.isChecked}/>
       </div>
     </>
   );

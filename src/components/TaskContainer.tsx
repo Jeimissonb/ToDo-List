@@ -6,19 +6,42 @@ import Clipboard from "../assets/Clipboard.svg";
 export interface TaskType {
   id: string | undefined;
   task: string | undefined;
+  isChecked: boolean | undefined;
 }
 
-export function TaskContainer({ task, id }: TaskType) {
+export function TaskContainer({ task, id, isChecked }: TaskType) {
   const [taskList, setTaskList] = useState<TaskType[]>([]);
+  const [taskItemChecked, setTaskItemChecked] = useState(0);
 
   useEffect(() => {
     if (task) {
-      setTaskList((prevTaskList) => [...prevTaskList, { task, id }]);
+      setTaskList((prevTaskList) => [...prevTaskList, { task, id, isChecked }]);
     }
-  }, [task, id, setTaskList]);
+  }, [task, id, setTaskList, isChecked]);
 
-  function onDeleteTask(taskId: string | undefined){
-    setTaskList((prevTaskList) => [...prevTaskList.filter(task => task.id !== taskId)])
+  function onDeleteTask(taskId: string | undefined, isChecked: boolean | undefined) {
+    console.log(isChecked)
+    if(taskId && isChecked === true) {
+      setTaskItemChecked(taskItemChecked - 1);
+    }
+    setTaskList((prevTaskList) => [
+      ...prevTaskList.filter(task => task.id !== taskId),
+    ]);
+  }
+
+  function onCheckTask(taskId: string, isChecked: boolean) {
+    setTaskList((prevItems) => {
+      return prevItems.map((item) => {
+        if (item.id === taskId && isChecked) {
+          setTaskItemChecked(taskItemChecked + 1);
+          return { ...item, isChecked: true };
+        } else if (item.id === taskId && !isChecked) {
+          setTaskItemChecked(taskItemChecked - 1);
+          return { ...item, isChecked: false };
+        }
+        return item;
+      });
+    });
   }
 
   return (
@@ -27,11 +50,11 @@ export function TaskContainer({ task, id }: TaskType) {
         <div className={styles.tasksInfo}>
           <div className={styles.createdTasksInfo}>
             <strong>Tarefas criadas</strong>
-            <span>0</span>
+            <span>{taskList.length}</span>
           </div>
           <div className={styles.doneTasksInfo}>
             <strong>Concluídas</strong>
-            <span>0</span>
+            <span>{taskItemChecked}</span>
           </div>
         </div>
         {taskList.length === 0 && (
@@ -44,7 +67,16 @@ export function TaskContainer({ task, id }: TaskType) {
           </div>
         )}
         <div className={styles.taskList}>
-          <TaskCard taskList={taskList} onDeleteTask={onDeleteTask}/>
+          {taskList.map((item) => {
+            return (
+              <TaskCard
+                key={item.id}
+                taskItem={item}
+                onDeleteTask={onDeleteTask}
+                onCheckTask={onCheckTask}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
