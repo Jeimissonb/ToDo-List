@@ -39,3 +39,9 @@
   font-size: 0.875rem;
   font-weight: 700;
 }
+
+.taskContent {
+  margin-top: 4rem;
+  max-height: 17.938rem;
+  width: 100%;
+}
