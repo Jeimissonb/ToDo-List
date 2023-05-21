@@ -2,13 +2,13 @@ import { Plus } from "phosphor-react";
 import styles from "./TaskForm.module.css";
 import { useState, ChangeEvent, useEffect } from "react";
 import { TaskContainer, TaskType } from "./TaskContainer";
+import { v4 as uuidv4 } from 'uuid';
+
 
 export function TaskForm() {
   const [textOfTask, setTextOfTask] = useState("");
   const [newTextOfTask, setNewTextOfTask] = useState<TaskType>();
   const [inputError, setInputError] = useState("");
-
-  const[tasks, setTasks] = useState(0);
 
   useEffect(() => {
     inputError && alert(inputError);
@@ -16,11 +16,6 @@ export function TaskForm() {
       setInputError("");
     }
   }, [inputError])
-
-  
-  useEffect(() => {
-    console.log(tasks)
-  }, [tasks])
   
 
   function handleOnChangeTaskValue(event: ChangeEvent<HTMLInputElement>) {
@@ -36,7 +31,7 @@ export function TaskForm() {
     } else {
 
       const taskItem: TaskType = {
-        id: tasks,
+        id: uuidv4(),
         task: textOfTask
       };
 
@@ -60,7 +55,7 @@ export function TaskForm() {
         </button>
       </form>
       <div className={styles.taskContent}>
-        <TaskContainer task={newTextOfTask?.task} id={newTextOfTask?.id} setTasks={setTasks} />
+        <TaskContainer task={newTextOfTask?.task} id={newTextOfTask?.id} />
       </div>
     </>
   );

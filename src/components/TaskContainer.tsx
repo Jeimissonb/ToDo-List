@@ -6,23 +6,17 @@ import Clipboard from "../assets/Clipboard.svg";
 export interface TaskType {
   id: number | undefined;
   task: string | undefined;
-  setTasks?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export function TaskContainer({ task, id, setTasks }: TaskType) {
+export function TaskContainer({ task, id }: TaskType) {
   const [taskList, setTaskList] = useState<TaskType[]>([]);
 
   useEffect(() => {
     if (task) {
       setTaskList((prevTaskList) => [...prevTaskList, { task, id }]);
     }
+    console.log(taskList)
   }, [task, id, setTaskList]);
-
-  useEffect(() => {
-    if (setTasks) {
-      setTasks(taskList.length);
-    }
-  }, [setTasks, taskList.length]);
 
   function onDeleteTask(taskId: number | undefined){
     setTaskList((prevTaskList) => [...prevTaskList.filter(task => task.id !== taskId)])
