@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Clipboard from "../assets/Clipboard.svg";
 
 export interface TaskType {
-  id: number | undefined;
+  id: string | undefined;
   task: string | undefined;
 }
 
@@ -15,10 +15,9 @@ export function TaskContainer({ task, id }: TaskType) {
     if (task) {
       setTaskList((prevTaskList) => [...prevTaskList, { task, id }]);
     }
-    console.log(taskList)
   }, [task, id, setTaskList]);
 
-  function onDeleteTask(taskId: number | undefined){
+  function onDeleteTask(taskId: string | undefined){
     setTaskList((prevTaskList) => [...prevTaskList.filter(task => task.id !== taskId)])
   }
 
@@ -46,7 +45,6 @@ export function TaskContainer({ task, id }: TaskType) {
         )}
         <div className={styles.taskList}>
           <TaskCard taskList={taskList} onDeleteTask={onDeleteTask}/>
-          {/* <TaskCard /> */}
         </div>
       </div>
     </div>

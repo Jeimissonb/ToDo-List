@@ -1,17 +1,20 @@
-import { useEffect } from "react";
 import styles from "./TaskCard.module.css";
 import { Trash } from "phosphor-react";
 import { TaskType } from "./TaskContainer";
+import { useState, ChangeEvent } from "react";
 
 interface TaskCardProps {
   taskList: TaskType[];
-  onDeleteTask: (id: number | undefined) => void;
+  onDeleteTask: (id: string | undefined) => void;
 }
 
 export function TaskCard({ taskList, onDeleteTask }: TaskCardProps) {
-  useEffect(() => {
-    console.log(taskList);
-  }, [taskList]);
+  const [isChecked, setIsChecked] = useState(false);
+
+  function handleChangeCheckbox(event: ChangeEvent<HTMLInputElement>) {
+    setIsChecked(event.target.checked);
+  }
+
   return (
     <>
       {taskList.map((taskItem) => {
@@ -20,22 +23,19 @@ export function TaskCard({ taskList, onDeleteTask }: TaskCardProps) {
             <div key={taskItem.id} className={styles.task}>
               <span>
                 <span></span>
-                <input type="checkbox" />
+                <input type="checkbox" onChange={handleChangeCheckbox} />
               </span>
+              {isChecked ? (
+                <p className={styles.checkedText}>{taskItem.task}</p>
+              ) : (
+                <p>{taskItem.task}</p>
+              )}
 
-              <p className={styles.checkedText}>
-                {taskItem.task}
-                {/* {task.map((item, index) => {
-  
-            return <p>{item}</p>
-          })} */}
-              </p>
-              {/* <p>
-          Integer urna interdum massa libero auctor neque turpis turpis semper.
-          Duis vel sed fames integer.
-        </p> */}
               <div className={styles.trashIcon}>
-                <Trash size={"1.5rem"} onClick={() => onDeleteTask(taskItem?.id)}/>
+                <Trash
+                  size={"1.5rem"}
+                  onClick={() => onDeleteTask(taskItem?.id)}
+                />
               </div>
             </div>
           );
